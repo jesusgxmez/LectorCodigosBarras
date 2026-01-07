@@ -20,3 +20,7 @@ El proyecto utiliza métodos de entrada naturales para mejorar la velocidad de u
 3. **Dictado**: Pulsa el botón del micrófono 🎤 y habla para rellenar el nombre o la descripción.
 4. **Reiniciar**: Si quieres volver a escanear, pulsa el botón azul **"REINTENTAR ESCANEO"**.
 5. **Historial**: Al pulsar "Guardar", el producto aparecerá en la lista de la pantalla de Historial.
+
+  **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/jesusgxmez/LectorCodigosBarras.git](https://github.com/jesusgxmez/LectorCodigosBarras.git)
