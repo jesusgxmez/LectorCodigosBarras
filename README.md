@@ -1,1 +1,30 @@
-# LectorCodigosBarras
+Lector de Códigos de Barras para Windows 📦
+
+Aplicación de escritorio desarrollada con .NET 10 y MAUI. Diseñada para leer códigos de barras y guardar información sobre estos, permitiendo la captura de productos mediante la cámara y el rellenado de información por voz.
+
+Tecnologías Usadas
+.NET 10 / MAUI: Framework para la interfaz y lógica de la aplicación.
+
+ZXing.Net.Maui: Control para el escaneo de códigos de barras.
+
+Windows Media Speech: API de Windows para el reconocimiento de voz.
+
+Fody / PropertyChanged: Para la actualización automática de la interfaz (MVVM).
+
+Interfaz Natural Implementada 🎤
+El proyecto utiliza métodos de entrada naturales para mejorar la velocidad de uso:
+
+Lector de códigos de barras: Identificación automática de productos mediante la cámara.
+
+Reconocimiento de voz: Dictado directo de texto en los campos de nombre y descripción para no usar el teclado.
+
+Instrucciones para probarlo
+Configuración: Asegúrate de tener el micrófono activado en los ajustes de privacidad de Windows.
+
+Escaneo: Coloca un código frente a la cámara. Al detectarlo, el sistema lo mostrará en pantalla y parará el visor.
+
+Dictado: Pulsa el botón del micrófono 🎤 y habla para rellenar el nombre o la descripción.
+
+Reiniciar: Si quieres volver a escanear, pulsa el botón azul "REINTENTAR ESCANEO".
+
+Historial: Al pulsar "Guardar", el producto aparecerá en la lista de la pantalla de Historial.
