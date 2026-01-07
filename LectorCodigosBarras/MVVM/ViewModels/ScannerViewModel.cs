@@ -73,5 +73,14 @@ namespace LectorCodigosBarras.MVVM.ViewModels
             IsScanning = true; 
             EstadoVoz = "Listo";
         });
+
+        public ICommand EliminarCommand => new Command<Producto>((producto) =>
+        {
+            if (producto != null && ListaHistorial.Contains(producto))
+            {
+                ListaHistorial.Remove(producto);
+            }
+        });
+
     }
 }

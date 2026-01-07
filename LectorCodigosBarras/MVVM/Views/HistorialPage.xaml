@@ -1,5 +1,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:LectorCodigosBarras.MVVM.ViewModels"
              x:Class="LectorCodigosBarras.MVVM.Views.HistorialPage"
              BackgroundColor="#F0F2F5">
 
@@ -16,14 +17,30 @@
                         <Border.Shadow>
                             <Shadow Brush="Black" Offset="0,2" Radius="5" Opacity="0.1" />
                         </Border.Shadow>
-                        <HorizontalStackLayout Spacing="15">
-                            <BoxView WidthRequest="4" Color="#3F51B5" CornerRadius="2" />
-                            <VerticalStackLayout Spacing="2">
-                                <Label Text="{Binding Nombre}" FontSize="18" FontAttributes="Bold" TextColor="#333" />
-                                <Label Text="{Binding Descripcion}" FontSize="14" TextColor="#666" MaxLines="1" />
+
+                        <Grid ColumnDefinitions="4, *, Auto" ColumnSpacing="15">
+
+                            <BoxView Grid.Column="0" WidthRequest="4" Color="#3F51B5" CornerRadius="2" />
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                <Label Text="{Binding Nombre}" FontSize="17" FontAttributes="Bold" TextColor="#333" />
+                                <Label Text="{Binding Descripcion}" FontSize="13" TextColor="#666" MaxLines="1" />
                                 <Label Text="{Binding Codigo, StringFormat='EAN: {0}'}" FontSize="11" FontAttributes="Bold" TextColor="#3F51B5"/>
                             </VerticalStackLayout>
-                        </HorizontalStackLayout>
+
+                            <Button Grid.Column="2" 
+                                Text="Borrar" 
+                                FontSize="14"
+                                FontAttributes="Bold"
+                                BackgroundColor="#FF3B30" 
+                                TextColor="White"
+                                VerticalOptions="Center"
+                                Padding="15,0"
+                                HeightRequest="35"
+                                CornerRadius="8"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:ScannerViewModel}}, Path=EliminarCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid>
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
