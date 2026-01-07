@@ -1,9 +1,9 @@
 # Lector de Códigos de Barras para Windows 📦
 
-### Descripción
+### Descripción 📋
 Aplicación de escritorio desarrollada con **.NET 10** y **MAUI**. Diseñada para la gestión de inventario en Windows, permitiendo la captura de códigos de barras de productos mediante la cámara y el rellenado de información por voz.
 
-### Tecnologías Usadas
+### Tecnologías Usadas 👨‍💻
 * **.NET 10 / MAUI**: Framework para la interfaz y lógica de la aplicación.
 * **ZXing.Net.Maui**: Control para el escaneo de códigos de barras.
 * **Windows Media Speech**: API de Windows para el reconocimiento de voz.
@@ -14,13 +14,13 @@ El proyecto utiliza métodos de entrada naturales para mejorar la velocidad de u
 * **Lector de códigos de barras**: Identificación automática de productos mediante la cámara.
 * **Reconocimiento de voz**: Dictado directo de texto en los campos de nombre y descripción para no usar el teclado.
 
-### La aplicación gestiona la información de los productos siguiendo el modelo CRUD (Create, Read, Update, Delete) de forma local
+### La aplicación gestiona la información de los productos siguiendo el modelo CRUD (Create, Read, Update, Delete) de forma local 🚠
 * **CREATE (Crear)**: Se generan nuevos registros al combinar el escaneo de la cámara con el dictado por voz y pulsar "Guardar".
 * **READ (Leer)**: Los productos se visualizan en tiempo real dentro de la pestaña de Historial mediante un CollectionView vinculado a una ObservableCollection.
 * **UPDATE (Actualizar/Corregir)**: La lógica del botón "Reintentar Escaneo" permite resetear el estado del formulario para corregir capturas erróneas antes de su inserción.
 * **DELETE (Borrar)**: Se ha implementado una funcionalidad de borrado individual en el historial para eliminar registros de la memoria de la App.
 
-### Instrucciones para probarlo
+### Instrucciones para probarlo ℹ️
 1. **Configuración**: Asegúrate de tener el micrófono activado en los ajustes de privacidad de Windows.
 3. **Escaneo**: Coloca un código frente a la cámara. Al detectarlo, el sistema lo mostrará en pantalla y parará el visor.
 4. **Dictado**: Pulsa el botón del micrófono 🎤 y habla para rellenar el nombre o la descripción.
