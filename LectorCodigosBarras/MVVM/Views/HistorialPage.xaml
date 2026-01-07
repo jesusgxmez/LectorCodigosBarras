@@ -1,0 +1,32 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LectorCodigosBarras.MVVM.Views.HistorialPage"
+             BackgroundColor="#F0F2F5">
+
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Grid.Row="0" Padding="20,15" BackgroundColor="#3F51B5">
+            <Label Text="HISTORIAL" FontSize="22" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Listado de productos guardados" FontSize="12" TextColor="#C5CAE9" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ListaHistorial}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border StrokeShape="RoundRectangle 12" Margin="0,0,0,12" Padding="15" BackgroundColor="White">
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="0,2" Radius="5" Opacity="0.1" />
+                        </Border.Shadow>
+                        <HorizontalStackLayout Spacing="15">
+                            <BoxView WidthRequest="4" Color="#3F51B5" CornerRadius="2" />
+                            <VerticalStackLayout Spacing="2">
+                                <Label Text="{Binding Nombre}" FontSize="18" FontAttributes="Bold" TextColor="#333" />
+                                <Label Text="{Binding Descripcion}" FontSize="14" TextColor="#666" MaxLines="1" />
+                                <Label Text="{Binding Codigo, StringFormat='EAN: {0}'}" FontSize="11" FontAttributes="Bold" TextColor="#3F51B5"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

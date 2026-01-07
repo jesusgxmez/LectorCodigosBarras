@@ -1,0 +1,61 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.Maui.Controls"
+             x:Class="LectorCodigosBarras.MVVM.Views.ScannerPage"
+             BackgroundColor="#F0F2F5">
+
+    <Grid RowDefinitions="Auto, *">
+        <VerticalStackLayout Grid.Row="0" Padding="20,15" BackgroundColor="#3F51B5">
+            <Label Text="LECTOR CÓDIGO DE BARRAS" FontSize="22" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Escanee un producto para comenzar" FontSize="12" TextColor="#C5CAE9" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Padding="20" Spacing="20">
+                <Border StrokeShape="RoundRectangle 25" StrokeThickness="0" HeightRequest="300">
+                    <Border.Shadow>
+                        <Shadow Brush="Black" Offset="0,10" Radius="20" Opacity="0.2" />
+                    </Border.Shadow>
+                    <zxing:CameraBarcodeReaderView 
+                        IsDetecting="{Binding IsScanning}"
+                        BarcodesDetected="OnBarcodesDetected" />
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 20" Padding="20" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="15">
+
+                        <VerticalStackLayout Spacing="5">
+                            <Label Text="{Binding CodigoDetectado}" FontAttributes="Bold" FontSize="18" HorizontalOptions="Center" TextColor="#3F51B5"/>
+                            <Button Text="🔄 REINTENTAR ESCANEO" 
+                                    Command="{Binding ReiniciarEscaneoCommand}"
+                                    BackgroundColor="#3F51B5" TextColor="White"
+                                    FontSize="12" HeightRequest="40" CornerRadius="10" HorizontalOptions="Center" WidthRequest="200" />
+                        </VerticalStackLayout>
+
+                        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                            <ActivityIndicator IsRunning="{Binding EstaEscuchando}" HeightRequest="20" WidthRequest="20" Color="#3F51B5" />
+                            <Label Text="{Binding EstadoVoz}" FontSize="12" FontAttributes="Italic" TextColor="Gray" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                            <Entry Placeholder="Nombre del producto" Text="{Binding NombreInput}" TextColor="#333" VerticalOptions="Center"/>
+                            <Button Grid.Column="1" Text="🎤" Command="{Binding DictarCommand}" CommandParameter="Nombre"
+                                    BackgroundColor="#3F51B5" TextColor="White" WidthRequest="45" HeightRequest="40" CornerRadius="8"/>
+                        </Grid>
+
+                        <Grid ColumnDefinitions="*, Auto" ColumnSpacing="10">
+                            <Editor Placeholder="Añadir descripción..." Text="{Binding DescripcionInput}" HeightRequest="80" TextColor="#333" VerticalOptions="Center"/>
+                            <Button Grid.Column="1" Text="🎤" Command="{Binding DictarCommand}" CommandParameter="Descripcion"
+                                    BackgroundColor="#3F51B5" TextColor="White" WidthRequest="45" HeightRequest="40" CornerRadius="8" VerticalOptions="Start"/>
+                        </Grid>
+
+                        <Button Text="GUARDAR PRODUCTO" Command="{Binding GuardarCommand}" 
+                                BackgroundColor="#3F51B5" TextColor="White" CornerRadius="12" FontAttributes="Bold" HeightRequest="50" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="VER HISTORIAL COMPLETO" Clicked="Button_Clicked" TextColor="#3F51B5" BackgroundColor="Transparent" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
