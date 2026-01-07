@@ -23,4 +23,4 @@ El proyecto utiliza métodos de entrada naturales para mejorar la velocidad de u
 
   **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/jesusgxmez/LectorCodigosBarras.git](https://github.com/jesusgxmez/LectorCodigosBarras.git)
+   git clone https://github.com/jesusgxmez/LectorCodigosBarras.git
